@@ -2,12 +2,15 @@ import React from 'react'
 import { Navbar } from './Navbar'
 import { Product } from './Product'
 
-export const HomePage = () => {
+function HomePage () {
+    
     return (
-        <div>
-            <Navbar/>
-            <Product/>
+        <div classname='wrapper'>
+            Home 
+            {/* <Navbar/> */}
+            {/* <Product/> */}
         </div>
     )
 }
 
+export default HomePage;
