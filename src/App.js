@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import { AddProducts } from './components/AddProducts'
 import Homepage  from './components/Homepage'
-import Product from './components/Product'
+
 
 function App()  {
     return (
@@ -9,6 +10,7 @@ function App()  {
       <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<Homepage />} /> 
+        <Route path='/addproducts' element={<AddProducts/>} />
       </Routes>
       </BrowserRouter>
       </div>
