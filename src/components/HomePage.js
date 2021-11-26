@@ -1,14 +1,15 @@
 import React from 'react'
+import '../css/Homepage.css'
 import { Navbar } from './Navbar'
 import { Product } from './Product'
+
 
 function HomePage () {
     
     return (
-        <div classname='wrapper'>
-            Home 
-            {/* <Navbar/> */}
-            {/* <Product/> */}
+        <div className='wrapper'>
+            <Navbar/> 
+            <Product/>
         </div>
     )
 }
