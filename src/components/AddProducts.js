@@ -1,5 +1,5 @@
 import React,{ useState } from 'react'
-
+import { storage, db } from '../config/Config'
 
 export const AddProducts = () => {
     const[productName, setProductName] = useState('');
@@ -7,8 +7,10 @@ export const AddProducts = () => {
     const[productImg, setProductImg] = useState(null);
     const[error, setError] = useState('');
 
+    // Image types 
     const types = ['image/png', 'image/jpeg']
 
+    // product image handler
     const productImgHandler = (e) =>{
         let selectedFile = e.target.files[0];
         if(selectedFile && types.includes(selectedFile.type)){
@@ -21,10 +23,36 @@ export const AddProducts = () => {
         }
     }
 
+    // add product form submit event 
     const addProducts = (e) =>{
         e.preventDefault();
-        console.log(productName,productPrice,productImg);
+        // console.log(productName,productPrice,productImg);
+        // storing the image
+        const uploadTask = storage.ref('product-images/${productImg.name}').put(productImg);
+        uploadTask.on('state_change', snapshot =>{
+            const progress = (snapshot.bytesTransferred/snapshot.totalBytes) * 100 ;
+            console.log(progress);
+        },err =>{
+            setError(err.message)
+        },()=>{
+            // getting product url and if successful then storing it in the database
+            storage.ref('product-images').child(productImg.name).getDownloadURL().then(url=>{
+                db.collection('Products').add({
+                    ProductName: productName,
+                    ProductPrice: Number(productPrice),
+                    ProductImg: url
+                }).then(()=>{
+                    setProductName('');
+                    setProductPrice(0);
+                    setProductImg('');
+                    setError('');
+                    document.getElementById('file').value='';
+                }).catch(err=>setError(err.message));
+            })
+        })
     }
+
+    // add products form
     return (
         <div className='container'>
             <br/>
@@ -43,7 +71,7 @@ export const AddProducts = () => {
             <br/>
             <label htmlFor='product-img'>Product Image</label>
             <br/>
-            <input type='file' className='form-control' onChange={productImgHandler}/>
+            <input type='file' className='form-control' onChange={productImgHandler} id='file'/>
             <br/>
             <button className='btn btn-success btn-md mybtn'>ADD</button>
             </form>
