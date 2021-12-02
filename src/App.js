@@ -1,20 +1,24 @@
 import React, { Component } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import { AddProducts } from "./components/AddProducts";
-import Homepage from "./components/Homepage";
-import { ProductsContextProvider } from "./global/ProductsContext";
+import Home from "./Components/Home"
+import  SignUp  from "./Components/SignUp"
+import Login from "./Components/Login"
+import  NotFound  from "./Components/NotFound";
+
 
 function App() {
   return (
-    <div>
-      <ProductsContextProvider>
+    <div>   
+        {/* for routing */}
         <BrowserRouter>
           <Routes>
-            <Route exact path="/" element={<Homepage />} />
-            <Route path="/addproducts" element={<AddProducts />} />
+            <Route exact path="/" element={<Home />} />
+            <Route path="/signup" element={<SignUp/>}/>
+            <Route path="/login" element={<Login/>}/>
+            
+            <Route element={<NotFound/>} />
           </Routes>
-        </BrowserRouter>
-      </ProductsContextProvider>
+        </BrowserRouter> 
     </div>
   );
 }
