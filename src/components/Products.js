@@ -1,13 +1,13 @@
-import React, { useContext } from "react";
+import React from 'react'
 
 
-function Products() {
+export const Products = () => {
+
     return (
         <div>
             Product
             Product 2
+        
         </div>
     )
-};
-
-export default Products;
+}

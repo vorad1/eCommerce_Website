@@ -1,23 +1,20 @@
-import firebase from 'firebase/app'
-import "firebase/storage";
-import "firebase/firestore";
-import "firebase/auth";
+import { initializeApp, getApps } from 'firebase/app'
+import { getAuth } from 'firebase/auth'
+import { getFirestore } from '@firebase/firestore'
+import { getStorage } from '@firebase/storage'
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyC20B__8Dk8JXoBmV99j48AGJKHrtQR6cE",
   authDomain: "ecommerce-cc5ea.firebaseapp.com",
   projectId: "ecommerce-cc5ea",
-  storageBucket: "ecommerce-cc5ea.appspot.com",
-  messagingSenderId: "827632597701",
-  appId: "1:827632597701:web:a22cfe075b96d695710eac",
-  measurementId: "G-G1T2NN6TY5"
 };
 
-firebase.initializeApp(firebaseConfig);
+const firebaseApp = getApps().length === 1 ? getApps()[0] : initializeApp(firebaseConfig);
 
-const auth = firebase.auth();
-const db = firebase.firestore();
-const storage = firebase.storage();
+const auth = getAuth(firebaseApp);
+const fs = getFirestore(firebaseApp);
+const storage = getStorage(firebaseApp);
 
-export { auth, db, storage };
+export {auth,fs,storage}
 
