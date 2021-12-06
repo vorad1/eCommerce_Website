@@ -1,9 +1,9 @@
 import React,{useState, useEffect} from 'react'
-import Navbar from './Navbar';
+import Navbar from './Navbar'
 import Products from './Products'
 import {auth,fs} from '../Config/Config'
 
-export const Home = () => {
+export default function Home  () {
 
     // getting current user function
     function GetCurrentUser(){

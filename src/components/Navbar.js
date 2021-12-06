@@ -1,15 +1,14 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import logo from '../images/logo1.png'
-import {Icon} from 'react-icons-kit'
-import {shoppingCart} from 'react-icons-kit/feather/shoppingCart'
-import {auth} from '../Config/Config'
-import {useHistory} from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import logo from '../images/logo1.png';
+import {Icon} from 'react-icons-kit';
+import {shoppingCart} from 'react-icons-kit/feather/shoppingCart';
+import {auth} from '../Config/Config';
+import {useNavigate} from 'react-router-dom';
 
-export const Navbar = ({user}) => {
+export default function Navbar({user}) {
 
-    const history = useHistory();
-
+    const history = useNavigate();
     const handleLogout=()=>{
         auth.signOut().then(()=>{
             history.push('/login');

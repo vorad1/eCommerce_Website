@@ -1,5 +1,5 @@
 import { initializeApp, getApps } from 'firebase/app'
-import { getAuth } from 'firebase/auth'
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import { getFirestore } from '@firebase/firestore'
 import { getStorage } from '@firebase/storage'
 
@@ -16,5 +16,5 @@ const auth = getAuth(firebaseApp);
 const fs = getFirestore(firebaseApp);
 const storage = getStorage(firebaseApp);
 
-export {auth,fs,storage}
+export {auth,fs,storage,signInWithEmailAndPassword}
 

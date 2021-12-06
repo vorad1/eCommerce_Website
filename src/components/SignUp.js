@@ -1,11 +1,11 @@
 import React,{useState} from 'react'
-import {auth,fs} from '../Config/Config'
+import {auth,fs, signInWithEmailAndPassword} from '../Config/Config'
 import {Link} from 'react-router-dom'
-import {useHistory} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 
-export const Signup = () => {
+export default function SignUp  () {
 
-    const history = useHistory();
+    const history = useNavigate();
 
     const [fullName, setFullname]=useState('');
     const [email, setEmail]=useState('');
@@ -17,7 +17,7 @@ export const Signup = () => {
     const handleSignup=(e)=>{
         e.preventDefault();
         // console.log(fullName, email, password);
-        auth.createUserWithEmailAndPassword(email,password).then((credentials)=>{
+        signInWithEmailAndPassword(auth,email,password).then((credentials)=>{
             console.log(credentials);
             fs.collection('users').doc(credentials.user.uid).set({
                 FullName: fullName,
@@ -64,7 +64,7 @@ export const Signup = () => {
                 <br></br>
                 <div className='btn-box'>
                     <span>Already have an account Login
-                    <Link to="login" className='link'> Here</Link></span>
+                    <Link to="/login" className='link'> Here</Link></span>
                     <button type="submit" className='btn btn-success btn-md'>SIGN UP</button>
                 </div>
             </form>
