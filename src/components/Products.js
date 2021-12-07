@@ -1,14 +1,13 @@
 import React from 'react'
+import { IndividualProduct } from './IndividualProduct'
 
+export const Products = ({ products, addToCart }) => {
 
-export const Products = () => {
+    // console.log(products);
 
-    return (
-        <div>
-            Product
-            Product 2
-        
-        </div>
-    )
+    return products.map((individualProduct) => (
+        <IndividualProduct key={individualProduct.ID} individualProduct={individualProduct}
+            addToCart={addToCart}
+        />
+    ))
 }
-
