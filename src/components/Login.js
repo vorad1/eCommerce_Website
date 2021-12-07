@@ -2,9 +2,9 @@ import React,{useState} from "react";
 import { Link } from "react-router-dom";
 import { auth } from "../Config/Config";
 import { useNavigate } from "react-router-dom";
-import { signInWithEmailAndPassword } from "@firebase/auth";
 
-export default function Login () {
+export const Login = () => {
+    
     const history = useNavigate();
 
     const [email, setEmail] = useState("");
@@ -16,7 +16,7 @@ export default function Login () {
     const handleLogin = (e) => {
         e.preventDefault();
         // console.log(email, password);
-        signInWithEmailAndPassword(auth,email, password)
+        auth.signInWithEmailAndPassword(email,password)
             .then(() => {
                 setSuccessMsg(
                     "Login Successful. You will now automatically get redirected to Home page"
@@ -68,7 +68,7 @@ export default function Login () {
                 <div className="btn-box">
                     <span>
                         Don't have an account SignUp
-                        <Link to="signup" className="link">
+                        <Link to="/signup" className="link">
                             {" "}
                             Here
                         </Link>

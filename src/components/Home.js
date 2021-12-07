@@ -1,9 +1,10 @@
 import React,{useState, useEffect} from 'react'
-import Navbar from './Navbar'
-import Products from './Products'
+import { Navbar } from './Navbar'
+import { Products } from './Products'
 import {auth,fs} from '../Config/Config'
+import { onAuthStateChanged } from "@firebase/auth";
 
-export default function Home  () {
+export const Home = () => {
 
     // getting current user function
     function GetCurrentUser(){
@@ -11,6 +12,7 @@ export default function Home  () {
         useEffect(()=>{
             auth.onAuthStateChanged(user=>{
                 if(user){
+                    
                     fs.collection('users').doc(user.uid).get().then(snapshot=>{
                         setUser(snapshot.data().FullName);
                     })

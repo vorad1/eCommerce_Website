@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import  Home  from './Components/Home'
-import  SignUp  from './Components/SignUp'
 import  Login  from './Components/Login'
+import  SignUp  from './Components/SignUp'
 import  NotFound  from './Components/NotFound'
-import AddProducts  from './Components/AddProducts'
+import  AddProducts  from './Components/AddProducts'
 
-function App() {
+export const App = () => {
   return (
     <div>   
         {/* for routing */}
@@ -23,4 +23,4 @@ function App() {
   );
 }
 
-export default App;
+export default App

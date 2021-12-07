@@ -1,20 +1,23 @@
-import { initializeApp, getApps } from 'firebase/app'
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
-import { getFirestore } from '@firebase/firestore'
-import { getStorage } from '@firebase/storage'
-
+import firebase from 'firebase'
+import 'firebase/auth'
+import 'firebase/firestore'
+import 'firebase/storage'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC20B__8Dk8JXoBmV99j48AGJKHrtQR6cE",
-  authDomain: "ecommerce-cc5ea.firebaseapp.com",
-  projectId: "ecommerce-cc5ea",
+  apiKey: NEXT_PUBLIC_APP_API_KEY,
+  authDomain: NEXT_PUBLIC_APP_AUTH_DOMAIN,
+  projectId: NEXT_PUBLIC_APP_PROJECT_ID,
+  storageBucket: NEXT_PUBLIC_APP_STORAGE_BUCKET,
+  messagingSenderId: NEXT_PUBLIC_APP_MESSAGING_SENDER_ID,
+  appId: NEXT_PUBLIC_APP_APP_ID,
+  measurementId: NEXT_PUBLIC_APP_MEASUREMENT_ID
 };
 
-const firebaseApp = getApps().length === 1 ? getApps()[0] : initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
 
-const auth = getAuth(firebaseApp);
-const fs = getFirestore(firebaseApp);
-const storage = getStorage(firebaseApp);
+const auth = firebase.auth();
+const fs = firebase.firestore();
+const storage = firebase.storage();
 
-export {auth,fs,storage,signInWithEmailAndPassword}
+export { auth, fs, storage };
 

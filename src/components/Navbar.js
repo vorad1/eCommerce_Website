@@ -6,7 +6,7 @@ import {shoppingCart} from 'react-icons-kit/feather/shoppingCart';
 import {auth} from '../Config/Config';
 import {useNavigate} from 'react-router-dom';
 
-export default function Navbar({user}) {
+export const Navbar = ({user}) => {
 
     const history = useNavigate();
     const handleLogout=()=>{

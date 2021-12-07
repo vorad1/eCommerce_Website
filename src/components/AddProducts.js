@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import {storage,fs} from '../Config/Config'
 
-export default function AddProducts  ()  {
+export const AddProducts = () => {
 
     const [title, setTitle]=useState('');
     const [description, setDescription]=useState('');
