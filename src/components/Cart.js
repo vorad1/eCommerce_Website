@@ -172,7 +172,7 @@ export const Cart = () => {
                 draggable: false,
                 progress: undefined,
             });
-            
+
             // to empty the cart
             const uid = auth.currentUser.uid;
             const carts = await fs.collection('Cart ' + uid).get();

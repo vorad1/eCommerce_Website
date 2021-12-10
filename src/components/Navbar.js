@@ -25,9 +25,9 @@ export const Navbar = ({ user, totalProducts }) => {
                 <div className='logo'>
                     <img src={logo} alt="logo" />
                     <h4>
-                         e
+                        e
                         <small class="text-muted" >Commerce</small>
-                    </h4>      
+                    </h4>
                 </div>
             </div>
             <div className='rightside'>
@@ -37,7 +37,7 @@ export const Navbar = ({ user, totalProducts }) => {
                     <div><Link className='navlink' to="signup">SIGN UP</Link></div>
                     <div><Link className='navlink' class='btn btn-outline-success' to="login">LOGIN</Link></div>
                 </>}
-                  {/* when user is logged in, they will be able to see cart,logout and their name on account       */}
+                {/* when user is logged in, they will be able to see cart,logout and their name on account       */}
                 {user && <>
                     <div><Link className='navlink' to="/">{user}</Link></div>
                     <div className='cart-menu-btn'>

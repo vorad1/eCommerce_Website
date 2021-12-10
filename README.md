@@ -1,3 +1,18 @@
+# About the App and how to start the app
+
+This is an eCommerce platform that is created with React and firebase as database.
+
+# To Run the app
+1. Open terminal
+2. Run 'npm install'
+3. Run 'npm start'
+
+App hosted on http://localhost:3000/
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
