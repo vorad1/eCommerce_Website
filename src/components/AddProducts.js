@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { storage, fs } from "../Config/Config";
+import { storage, fs } from "../config/Config";
 
 export const AddProducts = () => {
     const [title, setTitle] = useState("");

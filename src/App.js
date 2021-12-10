@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { Home } from './Components/Home'
-import { Login } from './Components/Login'
-import { Signup } from './Components/SignUp'
-import { NotFound } from './Components/NotFound'
-import { AddProducts } from './Components/AddProducts'
-import { Cart } from './Components/Cart'
+import { Home } from './components/Home'
+import { Login } from './components/Login'
+import { Signup } from './components/SignUp'
+import { NotFound } from './components/NotFound'
+import { AddProducts } from './components/AddProducts'
+import { Cart } from './components/Cart'
 
 export const App = () => {
   return (

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Navbar } from './Navbar'
-import { auth, fs } from '../Config/Config'
+import { auth, fs } from '../config/Config'
 import { CartProducts } from './CartProducts';
 import StripeCheckout from 'react-stripe-checkout';
 import axios from 'axios';

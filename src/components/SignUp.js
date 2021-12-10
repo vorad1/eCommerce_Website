@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { auth, fs } from '../Config/Config'
+import { auth, fs } from '../config/Config'
 import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router-dom'
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { auth } from '../Config/Config'
+import { auth } from '../config/Config'
 import { useHistory } from 'react-router-dom'
 
 export const Login = () => {
