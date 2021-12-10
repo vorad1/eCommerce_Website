@@ -19,18 +19,24 @@ export const Signup = () => {
         // console.log(fullName, email, password);
         auth.createUserWithEmailAndPassword(email,password).then((credentials)=>{
             console.log(credentials);
+            // generates a document in firebase storage with the users and their userids
+            
             fs.collection('users').doc(credentials.user.uid).set({
+                //to save the data
                 FullName: fullName,
                 Email: email,
                 Password: password
             }).then(()=>{
-                setSuccessMsg('Signup Successfull. You will now automatically get redirected to Login');
+                // populate the state of success message
+                setSuccessMsg('Signup Successful. You will now automatically get redirected to Login');
+                //to reset the fields of the form
                 setFullname('');
                 setEmail('');
                 setPassword('');
                 setErrorMsg('');
                 setTimeout(()=>{
                     setSuccessMsg('');
+                    // if successful will direct to navigate page
                     history.push('/login');
                 },3000)
             }).catch(error=>setErrorMsg(error.message));
@@ -40,6 +46,7 @@ export const Signup = () => {
     }
 
     return (
+        // form for signup
         <div className='container'>
             <br></br>
             <br></br>

@@ -16,6 +16,7 @@ export const Login = () => {
     const handleLogin = (e) => {
         e.preventDefault();
         // console.log(email, password);
+        //using the function we can sign in the user
         auth.signInWithEmailAndPassword(email, password).then(() => {
             setSuccessMsg('Login Successfull. You will now automatically get redirected to Home page');
             setEmail('');
@@ -29,6 +30,7 @@ export const Login = () => {
     }
 
     return (
+//login form
         <div className='container'>
             <br></br>
             <br></br>

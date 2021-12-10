@@ -172,7 +172,8 @@ export const Cart = () => {
                 draggable: false,
                 progress: undefined,
             });
-
+            
+            // to empty the cart
             const uid = auth.currentUser.uid;
             const carts = await fs.collection('Cart ' + uid).get();
             for (var snap of carts.docs) {
@@ -207,8 +208,9 @@ export const Cart = () => {
                             Total Price to Pay: <span>$ {totalPrice}</span>
                         </div>
                         <br></br>
+                        {/* to integrate stripe checkout */}
                         <StripeCheckout
-                            stripeKey='pk_test_51Hhu6bK4kL4WRmvGEUkTmdFw1lUtTAnadBSDb0eXGuA2JJGrntIBdm10llYu5RbPbLbaS1My74Rgdi0n5ePYIGB600p3V4GKmK'
+                            stripeKey='pk_test_51K5081LPrbGhrY8KxIoMXWMEJ0B3RWeeHLNHc743BkJTZYtjVsPGM01NqbUC0ZtOzbbuug8IF1LvI7Kz09qu9vdL007lZltacF'
                             token={handleToken}
                             billingAddress
                             shippingAddress
