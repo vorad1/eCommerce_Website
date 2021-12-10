@@ -7,7 +7,7 @@ This is an eCommerce platform that is created with React and firebase as databas
 2. Run 'npm install'
 3. Run 'npm start'
 
-App hosted on
+App hosted on http://localhost:3000/
 
 
 
