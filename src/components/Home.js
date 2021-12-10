@@ -115,7 +115,7 @@ export const Home = (props) => {
             {/* passing the user in navbar */}
             <Navbar user={user} totalProducts={totalProducts} />
             <br></br>
-             {/* if products lenght > 0 return all the products  */}
+            {/* if products lenght > 0 return all the products  */}
             {products.length > 0 && (
                 <div className='container-fluid'>
                     <h1 className='text-center'>Products</h1>
@@ -126,7 +126,7 @@ export const Home = (props) => {
                     </div>
                 </div>
             )}
-            {/* untill products is rendered, the products will not show */}
+            {/* until products is rendered, the products will not show */}
             {products.length < 1 && (
                 <div className='container-fluid'>Please wait....</div>
             )}
